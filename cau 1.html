@@ -19,10 +19,21 @@
         return max; // trả về max
      }
 
+    //khởi tạo mảng ngẫu nhiên số điểm từ độ dài là length
+     function createArray(length){
+        let newArr= new Array(length);
+        for (let i = 0 ; i < newArr.length ; i++){
+          newArr[i]= Math.round(Math.random()*10);
+        }
+        return newArr;
+     }
 
-     let arr =[1.2,5.5,6.7,2.5];
-     let a= findMax(arr);
-     console.log(a);
+     let length = parseInt(prompt("Nhập chiều dài mảng student:"));
+
+     let studentArr =createArray(length);
+     let findValue= findMax(studentArr);
+     console.log("Mảng điểm ban đầu là : "+ studentArr);
+     console.log("Số điểm lớn nhất là :" + findValue);
   </script>
 </body>
 </html>
