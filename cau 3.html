@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 3</title>
+</head>
+<body>
+
+
+  <script>
+    function isFibonacci(inputValue){
+        let myFiboArr = makeFibonaciSeries(inputValue); // tạo mảng fibo
+        //duyệt mảng fibo
+        for (let i = 0 ; i < myFiboArr.length ; i++){
+
+          if(inputValue === myFiboArr[i]){
+            return true;// nếu số cần tìm nằm trong số fibo thì return true;
+          }
+
+        }
+
+        return false; // ngược lại return false
+    }
+
+    function makeFibonaciSeries(inputValue){
+        let fiboArr=[]; // tảo mảng fibo trống
+        let i =2; // giá trị i bắt đầu từ 2
+        fiboArr[0]=1; // giá trị đầu tiển của fibo =1
+        fiboArr[1]=1;// giá trị thứ 2 của fibo=1
+        let checkNum; // kiểm tra số vòng lặp cho đến khi giá trị cuối cùng của mảng fibo lớn hơn số input
+
+        do{
+
+          fiboArr[i]=fiboArr[i-1] + fiboArr[i-2]; // tạo mảng số fibo
+          checkNum= fiboArr[i]; // gán cho checkNum = phần tử cuối cùng  của fibo
+          i++;
+
+        }while(inputValue > checkNum );
+
+        return fiboArr; // trả về mảng fibo
+    }
+
+    let value= parseInt(prompt("Nhập số cần kiểm tra có là số Fibonacci hay không? "));
+
+    let checkFibo= isFibonacci(value);
+
+    if(checkFibo){
+      console.log(" là số fibo");
+    }else{
+      console.log("không phải là số fibo");
+    }
+  </script>
+</body>
+</html>

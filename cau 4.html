@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cau 4</title>
+    <style type="text/css">
+        canvas{
+          background-color:white;
+        }
+    </style>
+</head>
+<body>
+
+  <canvas id="myCanvas" width="720" height="700"></canvas>
+
+  <script>
+    function Circle(x,y,radius,color){
+      this.x=x;
+      this.y=y;
+      this.radius=radius;
+      this.color=color;
+      this.render=function(canvas){
+        let ctx= canvas.getContext("2d"); //tạo context để vẽ canvas
+        ctx.fillStyle=this.color; //gán màu cho circle
+        ctx.beginPath(); // khỏi tạo path
+        ctx.arc(this.x,this.y,this.radius,0,2*Math.PI); //vẽ hình tròn trên canvas
+        ctx.stroke(); // vẽ hình
+      }
+    }
+
+    let myCanvas= document.getElementById("myCanvas"); // lấy canvas 
+    let circle = new Circle(10,10,100,"#000000"); // tạo đối tượng circle tọa độ x=10, y=10,radius=100 , color=#000000
+    circle.render(myCanvas);
+  </script>
+</body>
+</html>
